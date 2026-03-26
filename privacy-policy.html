@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arclog — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111113;
+  --bg2: #1a1a1e;
+  --bg3: #222228;
+  --bg4: #2a2a32;
+  --accent: #e8672a;
+  --accent2: #f0954d;
+  --text: #f0eeea;
+  --text2: #ccc8c2;
+  --text3: #9e9a95;
+  --border: #2e2e36;
+  --card: #1e1e24;
+  --green: #4caf7d;
+  --blue: #5b9cf6;
+  --purple: #9b7fe8;
+  --yellow: #f6bd5b;
+  --r: 14px;
+  --rs: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ── Ambient background glow ── */
+.bg-glow {
+  position: fixed;
+  top: -180px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232,103,42,.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-glow-2 {
+  position: fixed;
+  bottom: -200px;
+  left: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(155,127,232,.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Shell ── */
+.shell {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header / Nav ── */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 20px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.logo:hover { opacity: .8; }
+.logo .hi { color: var(--accent); }
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  transition: all .2s;
+  cursor: pointer;
+}
+.back-link:hover { border-color: var(--accent); color: var(--text2); }
+.back-link svg { width: 14px; height: 14px; }
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 32px 0 48px;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(232,103,42,.12);
+  color: var(--accent2);
+  border: 1px solid rgba(232,103,42,.2);
+  margin-bottom: 20px;
+}
+.hero-badge svg { width: 13px; height: 13px; }
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero h1 .hi { color: var(--accent); }
+
+.hero .subtitle {
+  font-size: 14px;
+  color: var(--text3);
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.effective-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--text3);
+  background: var(--bg3);
+  padding: 6px 14px;
+  border-radius: var(--rs);
+  border: 1px solid var(--border);
+}
+.effective-date svg { width: 13px; height: 13px; color: var(--accent); }
+
+/* ── Table of Contents ── */
+.toc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  margin-bottom: 40px;
+}
+.toc-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 14px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc;
+}
+.toc li {
+  counter-increment: toc;
+  margin-bottom: 6px;
+}
+.toc li:last-child { margin-bottom: 0; }
+.toc a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: var(--rs);
+  transition: all .15s;
+}
+.toc a:hover {
+  background: var(--bg3);
+  color: var(--accent);
+}
+.toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: 'DM Serif Display', serif;
+  font-size: 14px;
+  color: var(--accent);
+  width: 26px;
+  flex-shrink: 0;
+}
+
+/* ── Sections ── */
+.policy-section {
+  margin-bottom: 38px;
+  scroll-margin-top: 100px;
+}
+
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(232,103,42,.1);
+  border: 1px solid rgba(232,103,42,.25);
+  font-family: 'DM Serif Display', serif;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.policy-section h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.policy-section p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+.policy-section p:last-child { margin-bottom: 0; }
+
+.policy-section strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Info Cards ── */
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.info-card.accent {
+  background: linear-gradient(135deg, rgba(232,103,42,.06), rgba(155,127,232,.04));
+  border-color: rgba(232,103,42,.2);
+}
+.info-card.purple {
+  background: linear-gradient(135deg, rgba(155,127,232,.06), rgba(91,156,246,.04));
+  border-color: rgba(155,127,232,.2);
+}
+
+.info-card-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-card-title svg { width: 13px; height: 13px; }
+.info-card.purple .info-card-title { color: var(--purple); }
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+.info-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.info-card li:last-child { margin-bottom: 0; }
+.info-card li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.info-card.purple li::before { background: var(--purple); }
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 38px 0;
+  position: relative;
+}
+.divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+}
+.footer .logo {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.footer p {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.7;
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+/* ── Scroll-to-top ── */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(232,103,42,.4);
+  z-index: 80;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all .3s;
+  pointer-events: none;
+}
+.scroll-top.show {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+.scroll-top:hover { box-shadow: 0 6px 28px rgba(232,103,42,.55); }
+.scroll-top:active { transform: scale(.9); }
+.scroll-top svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2.5; }
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+  .shell { padding: 0 18px; }
+  .hero h1 { font-size: 30px; }
+  .policy-section h2 { font-size: 19px; }
+  .top-bar { padding: 20px 0 16px; margin-bottom: 28px; }
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.animate {
+  opacity: 0;
+  animation: fadeUp .5s ease forwards;
+}
+.animate-d1 { animation-delay: .05s; }
+.animate-d2 { animation-delay: .1s; }
+.animate-d3 { animation-delay: .15s; }
+.animate-d4 { animation-delay: .2s; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-glow-2"></div>
+
+<div class="shell">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <a class="logo" href="#">Arc<span class="hi">log</span></a>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero animate">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Legal
+    </div>
+    <h1>Privacy <span class="hi">Policy</span></h1>
+    <p class="subtitle">Your data belongs to you. Here's exactly what we collect, how we use it, and why — with zero fine-print tricks.</p>
+    <div class="effective-date">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Effective: March 26, 2026
+    </div>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc animate animate-d1">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#s1">Information We Collect</a></li>
+      <li><a href="#s2">How We Use Your Information</a></li>
+      <li><a href="#s3">Data Storage &amp; Security</a></li>
+      <li><a href="#s4">Third-Party Services</a></li>
+      <li><a href="#s5">Your Rights &amp; Controls</a></li>
+      <li><a href="#s6">Cookies &amp; Local Storage</a></li>
+      <li><a href="#s7">Changes to This Policy</a></li>
+      <li><a href="#s8">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="policy-section animate animate-d2" id="s1">
+    <div class="section-num">1</div>
+    <h2>Information We Collect</h2>
+    <p>When you create an Arclog account, we collect information necessary to provide you with a personalised tracking and social experience. This includes data you provide directly and data generated through your use of the app.</p>
+
+    <div class="info-card accent">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Account Information
+      </div>
+      <ul>
+        <li>Email address and password (or Google OAuth credentials)</li>
+        <li>Display name, username, and profile bio</li>
+        <li>Profile avatar (if uploaded)</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Usage &amp; Library Data
+      </div>
+      <ul>
+        <li>Titles added to your library (anime, manga, movies, TV shows, books)</li>
+        <li>Watch/read progress, episode tracking, and status updates</li>
+        <li>Ratings, reviews, comments, and replies you post</li>
+        <li>Likes and social interactions within the community</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Technical Data
+      </div>
+      <ul>
+        <li>Device type, browser version, and operating system</li>
+        <li>Approximate location (country/region level, not precise)</li>
+        <li>Session duration and feature usage patterns</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 2 -->
+  <div class="policy-section" id="s2">
+    <div class="section-num">2</div>
+    <h2>How We Use Your Information</h2>
+    <p>We use your data solely to operate, improve, and personalise Arclog. We <strong>never</strong> sell your personal information to third parties.</p>
+    <p><strong>Core functionality:</strong> Authenticating your account, syncing your library across devices, displaying your progress and stats, enabling comments and social features, and delivering personalised recommendations based on your library.</p>
+    <p><strong>Improvement &amp; safety:</strong> Analysing aggregated usage patterns to improve features, identifying and preventing spam or abusive behaviour, debugging technical issues, and maintaining the security of our platform.</p>
+    <p><strong>Communication:</strong> Sending essential service emails (password resets, security alerts). We will never send marketing emails without your explicit opt-in consent.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 3 -->
+  <div class="policy-section" id="s3">
+    <div class="section-num">3</div>
+    <h2>Data Storage &amp; Security</h2>
+    <p>Your data is stored securely on <strong>Supabase</strong> infrastructure, which leverages enterprise-grade PostgreSQL databases with encryption at rest and in transit. All connections use TLS/SSL encryption.</p>
+    <p>Passwords are never stored in plain text — they are hashed using industry-standard bcrypt algorithms. Google OAuth tokens are managed securely through Supabase Auth and are never exposed to our application code.</p>
+
+    <div class="info-card purple">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Security Measures
+      </div>
+      <ul>
+        <li>End-to-end TLS/SSL encryption on all data transfers</li>
+        <li>Row-level security policies on database tables</li>
+        <li>Bcrypt password hashing with salting</li>
+        <li>Regularly audited authentication flows</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 4 -->
+  <div class="policy-section" id="s4">
+    <div class="section-num">4</div>
+    <h2>Third-Party Services</h2>
+    <p>Arclog integrates with the following third-party services to provide its functionality. Each service has its own privacy policy governing data they process:</p>
+    <p><strong>Supabase</strong> — Authentication, database, and backend infrastructure. Your account data and library are stored on Supabase servers.</p>
+    <p><strong>Google OAuth</strong> — If you choose "Continue with Google," we receive your name and email from Google. We do not access your Google contacts, files, or any other Google data.</p>
+    <p><strong>Google Fonts</strong> — We load the Sora and DM Serif Display fonts from Google Fonts. Google may collect basic usage data through this service.</p>
+    <p>We do not integrate any advertising networks, analytics trackers, or data brokers.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 5 -->
+  <div class="policy-section" id="s5">
+    <div class="section-num">5</div>
+    <h2>Your Rights &amp; Controls</h2>
+    <p>You maintain full control over your data on Arclog. Here's what you can do at any time:</p>
+
+    <div class="info-card accent">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Your Controls
+      </div>
+      <ul>
+        <li><strong>Edit or delete</strong> your profile information, bio, and username from Settings</li>
+        <li><strong>Remove</strong> any titles, reviews, ratings, or comments you've posted</li>
+        <li><strong>Export</strong> your library data upon request</li>
+        <li><strong>Delete your account</strong> entirely — this permanently removes all your data from our servers</li>
+      </ul>
+    </div>
+
+    <p>If you reside in the EU/EEA, you have additional rights under GDPR including the right to access, rectification, erasure, data portability, and the right to object to processing. Contact us to exercise these rights.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 6 -->
+  <div class="policy-section" id="s6">
+    <div class="section-num">6</div>
+    <h2>Cookies &amp; Local Storage</h2>
+    <p>Arclog uses <strong>browser local storage</strong> (not traditional cookies) to keep you signed in and cache your library for offline-like performance. This data stays on your device and is not transmitted to any third-party tracking services.</p>
+    <p>Specifically, we store your authentication session token, cached library data for faster load times, and your app preferences (theme, notification settings). Clearing your browser data will remove this stored information and require you to sign in again.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 7 -->
+  <div class="policy-section" id="s7">
+    <div class="section-num">7</div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. When we make significant changes, we will notify you through the app or via email. The "Effective" date at the top of this page will always reflect the most recent revision.</p>
+    <p>We encourage you to review this page periodically. Your continued use of Arclog after any changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 8 -->
+  <div class="policy-section" id="s8">
+    <div class="section-num">8</div>
+    <h2>Contact Us</h2>
+    <p>Questions, concerns, or requests about your data? We'd love to hear from you.</p>
+
+    <div class="info-card accent">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get in Touch
+      </div>
+      <ul>
+        <li><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e4878b8a90858790ca8592858a8d978c968589858a85a48389858d88ca878b89">[email&#160;protected]</a></li>
+        <li><strong>Response time:</strong> We aim to reply within 48 hours</li>
+        <li><strong>Data requests:</strong> Account deletion and export requests are processed within 30 days</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a class="logo" href="index.html">Arc<span class="hi">log</span></a>
+    <p>Track. Discuss. Share.</p>
+    <p style="margin-top: 8px;"><a href="terms-and-conditions.html">Terms &amp; Conditions</a></p>
+    <p style="margin-top: 12px; font-size: 11px;">&copy; 2026 Arclog. All rights reserved.</p>
+  </div>
+
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Scroll-to-top button visibility
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+});
+
+// Animate sections on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'none';
+      entry.target.style.transition = 'opacity .5s ease, transform .5s ease';
+    }
+  });
+}, { threshold: 0.1 });
+
+d
