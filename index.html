@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arclog — Track. Discuss. Share.</title>
+<title>Arclog</title>
 <meta name="description" content="Arclog is the ultimate media tracker for anime, manga, movies, TV shows, and books. Track your progress, rate titles, discuss with the community, and share your taste.">
 <meta name="theme-color" content="#111113">
-<meta property="og:title" content="Arclog — Track. Discuss. Share.">
+<meta property="og:title" content="Arclog - Track. Discuss. Share.">
+<link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:description" content="The ultimate media tracker for anime, manga, movies, TV shows & books.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arclog.online">
@@ -14,712 +15,110 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #111113;
-  --bg2: #1a1a1e;
-  --bg3: #222228;
-  --bg4: #2a2a32;
-  --accent: #e8672a;
-  --accent2: #f0954d;
-  --text: #f0eeea;
-  --text2: #ccc8c2;
-  --text3: #9e9a95;
-  --border: #2e2e36;
-  --card: #1e1e24;
-  --green: #4caf7d;
-  --blue: #5b9cf6;
-  --purple: #9b7fe8;
-  --yellow: #f6bd5b;
-  --teal: #5bf6d2;
-  --r: 14px;
-  --rs: 8px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  height: 100%;
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Sora', sans-serif;
-  font-size: 14px;
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100%;
-  background: var(--bg);
-  overflow-x: hidden;
-}
-
-a { text-decoration: none; color: inherit; }
-
-/* ── Ambient Glows ── */
-.glow-1 {
-  position: fixed;
-  top: -200px;
-  right: -150px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(232,103,42,.1) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
-.glow-2 {
-  position: fixed;
-  bottom: -250px;
-  left: -150px;
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, rgba(155,127,232,.07) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
-.glow-3 {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(232,103,42,.04) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── Navbar ── */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 18px 0;
-  transition: background .3s, backdrop-filter .3s;
-}
-nav.scrolled {
-  background: rgba(17,17,19,.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px;
-}
-.nav-logo .hi { color: var(--accent); }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-.nav-link {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text3);
-  transition: color .2s;
-  cursor: pointer;
-}
-.nav-link:hover { color: var(--text); }
-.nav-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: 28px;
-  background: var(--accent);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all .2s;
-  box-shadow: 0 4px 18px rgba(232,103,42,.35);
-}
-.nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(232,103,42,.45);
-}
-.nav-cta:active { transform: scale(.96); }
-.nav-cta svg { width: 16px; height: 16px; }
-
-/* Mobile menu */
-.mobile-toggle {
-  display: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--text2);
-}
-.mobile-toggle svg { width: 18px; height: 18px; }
-
-/* ── Hero ── */
-.hero {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 160px 32px 80px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  border-radius: 24px;
-  background: rgba(232,103,42,.1);
-  border: 1px solid rgba(232,103,42,.2);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--accent2);
-  margin-bottom: 28px;
-  animation: fadeUp .6s ease forwards;
-}
-.hero-pill .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: pulse 2s infinite;
-}
-
-.hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 64px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  animation: fadeUp .6s ease .1s forwards;
-  opacity: 0;
-}
-.hero h1 .hi { color: var(--accent); }
-.hero h1 .line { display: block; }
-
-.hero .tagline {
-  font-size: 17px;
-  color: var(--text3);
-  line-height: 1.75;
-  max-width: 520px;
-  margin: 0 auto 40px;
-  animation: fadeUp .6s ease .2s forwards;
-  opacity: 0;
-}
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  animation: fadeUp .6s ease .3s forwards;
-  opacity: 0;
-}
-
-.play-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  border-radius: 16px;
-  background: var(--text);
-  color: var(--bg);
-  font-size: 15px;
-  font-weight: 600;
-  transition: all .2s;
-  box-shadow: 0 8px 30px rgba(0,0,0,.3);
-}
-.play-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.4);
-}
-.play-btn:active { transform: scale(.97); }
-.play-btn svg { width: 24px; height: 24px; }
-.play-btn .btn-text { text-align: left; }
-.play-btn .btn-sub { font-size: 10px; font-weight: 400; opacity: .6; display: block; margin-bottom: 1px; }
-.play-btn .btn-main { display: block; line-height: 1.2; }
-
-.hero-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 28px;
-  border-radius: 16px;
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  color: var(--text2);
-  font-size: 14px;
-  font-weight: 500;
-  transition: all .2s;
-}
-.hero-secondary:hover {
-  border-color: var(--accent);
-  color: var(--text);
-  transform: translateY(-2px);
-}
-.hero-secondary svg { width: 16px; height: 16px; }
-
-/* ── Phone Mockup ── */
-.mockup-section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 32px 80px;
-  position: relative;
-  z-index: 1;
-}
-
-.mockup-container {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  perspective: 1200px;
-}
-
-.phone-frame {
-  width: 260px;
-  height: 520px;
-  border-radius: 36px;
-  background: var(--bg2);
-  border: 2px solid var(--border);
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04) inset;
-  transition: transform .4s ease;
-}
-.phone-frame:nth-child(1) { transform: rotateY(8deg) translateZ(-20px); }
-.phone-frame:nth-child(2) { transform: scale(1.08) translateZ(40px); z-index: 2; }
-.phone-frame:nth-child(3) { transform: rotateY(-8deg) translateZ(-20px); }
-
-.phone-frame:hover { transform: scale(1.04) translateZ(20px); }
-
-.phone-notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 28px;
-  background: var(--bg);
-  border-radius: 0 0 18px 18px;
-  z-index: 3;
-}
-
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 20px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.phone-screen .mock-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.phone-screen .mock-sub {
-  font-size: 10px;
-  color: var(--text3);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Mock cards inside phones */
-.mock-card {
-  width: 100%;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 8px;
-}
-.mock-card-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.mock-thumb {
-  width: 36px;
-  height: 48px;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
-.mock-card-info h4 {
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mock-card-info p {
-  font-size: 9px;
-  color: var(--text3);
-}
-.mock-progress {
-  height: 3px;
-  background: var(--bg3);
-  border-radius: 3px;
-  margin-top: 8px;
-  overflow: hidden;
-}
-.mock-progress-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-}
-.mock-stat-row {
-  display: flex;
-  gap: 6px;
-  width: 100%;
-  margin-bottom: 8px;
-}
-.mock-stat {
-  flex: 1;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 8px;
-  text-align: center;
-}
-.mock-stat .num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  color: var(--accent);
-}
-.mock-stat .lbl {
-  font-size: 8px;
-  color: var(--text3);
-  margin-top: 2px;
-}
-.mock-chip-row {
-  display: flex;
-  gap: 5px;
-  width: 100%;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.mock-chip {
-  padding: 5px 10px;
-  border-radius: 14px;
-  font-size: 9px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* ── Features ── */
-.features {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 80px 32px;
-  position: relative;
-  z-index: 1;
-}
-.features-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-.features-header .sec-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-.features-header h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 36px;
-  line-height: 1.2;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.feature-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 28px 24px;
-  transition: all .25s;
-  position: relative;
-  overflow: hidden;
-}
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity .25s;
-}
-.feature-card:hover {
-  border-color: rgba(232,103,42,.3);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.25);
-}
-.feature-card:hover::before { opacity: 1; }
-
-.feature-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  margin-bottom: 18px;
-}
-
-.feature-card h3 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.feature-card p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--text3);
-}
-
-/* ── Media Types Banner ── */
-.media-strip {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 40px 0;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-.media-strip-inner {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-.media-type {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text2);
-}
-.media-type .emoji { font-size: 24px; }
-
-/* ── CTA Section ── */
-.cta-section {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 100px 32px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.cta-box {
-  background: linear-gradient(135deg, rgba(232,103,42,.08), rgba(155,127,232,.05));
-  border: 1px solid rgba(232,103,42,.2);
-  border-radius: 24px;
-  padding: 64px 40px;
-  position: relative;
-  overflow: hidden;
-}
-.cta-box::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(232,103,42,.15), transparent 70%);
-}
-.cta-box::after {
-  content: '';
-  position: absolute;
-  bottom: -40px;
-  left: -40px;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(155,127,232,.1), transparent 70%);
-}
-.cta-box h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 36px;
-  line-height: 1.2;
-  margin-bottom: 14px;
-  position: relative;
-  z-index: 1;
-}
-.cta-box h2 .hi { color: var(--accent); }
-.cta-box p {
-  font-size: 15px;
-  color: var(--text3);
-  max-width: 420px;
-  margin: 0 auto 32px;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-}
-.cta-box .play-btn {
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Footer ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 48px 32px 40px;
-  position: relative;
-  z-index: 1;
-}
-.footer-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-.footer-brand .logo {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 8px;
-}
-.footer-brand p {
-  font-size: 12px;
-  color: var(--text3);
-  line-height: 1.7;
-  max-width: 260px;
-}
-.footer-col h4 {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text3);
-  margin-bottom: 14px;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: var(--text2);
-  margin-bottom: 10px;
-  transition: color .2s;
-}
-.footer-col a:hover { color: var(--accent); }
-
-.footer-bottom {
-  max-width: 1080px;
-  margin: 32px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-bottom p {
-  font-size: 11px;
-  color: var(--text3);
-}
-.footer-bottom a {
-  font-size: 11px;
-  color: var(--text3);
-  transition: color .2s;
-}
-.footer-bottom a:hover { color: var(--accent); }
-
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .4; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ── Responsive ── */
-@media (max-width: 860px) {
-  .features-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero h1 { font-size: 46px; }
-  .phone-frame:nth-child(1),
-  .phone-frame:nth-child(3) { display: none; }
-  .phone-frame:nth-child(2) { transform: none; }
-  .phone-frame:nth-child(2):hover { transform: scale(1.02); }
-}
-
-@media (max-width: 640px) {
-  .nav-links { display: none; }
-  .mobile-toggle { display: flex; }
-  .hero { padding: 130px 20px 60px; }
-  .hero h1 { font-size: 36px; }
-  .hero .tagline { font-size: 15px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .features { padding: 60px 20px; }
-  .cta-section { padding: 60px 20px; }
-  .cta-box { padding: 40px 24px; }
-  .cta-box h2 { font-size: 28px; }
-  .media-strip-inner { gap: 24px; }
-  .footer-inner { flex-direction: column; gap: 28px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
-  .mockup-section { padding: 0 20px 60px; }
-  .phone-frame { width: 240px; height: 480px; }
-}
+:root{--bg:#111113;--bg2:#1a1a1e;--bg3:#222228;--bg4:#2a2a32;--accent:#e8672a;--accent2:#f0954d;--text:#f0eeea;--text2:#ccc8c2;--text3:#9e9a95;--border:#2e2e36;--card:#1e1e24;--green:#4caf7d;--blue:#5b9cf6;--purple:#9b7fe8;--yellow:#f6bd5b;--teal:#5bf6d2;--r:14px;--rs:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{height:100%;background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:14px;scroll-behavior:smooth}
+body{min-height:100%;background:var(--bg);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.glow-1{position:fixed;top:-200px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(232,103,42,.1) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-2{position:fixed;bottom:-250px;left:-150px;width:550px;height:550px;background:radial-gradient(circle,rgba(155,127,232,.07) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-3{position:fixed;top:40%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(232,103,42,.04) 0%,transparent 60%);pointer-events:none;z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(17,17,19,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:28px}.nav-logo .hi{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-link{font-size:13px;font-weight:500;color:var(--text3);transition:color .2s;cursor:pointer}.nav-link:hover{color:var(--text)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:28px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;transition:all .2s;box-shadow:0 4px 18px rgba(232,103,42,.35)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,103,42,.45)}.nav-cta:active{transform:scale(.96)}.nav-cta svg{width:16px;height:16px}
+.mobile-toggle{display:none;width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);align-items:center;justify-content:center;cursor:pointer;color:var(--text2)}.mobile-toggle svg{width:18px;height:18px}
+.hero{max-width:1080px;margin:0 auto;padding:160px 32px 80px;text-align:center;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:24px;background:rgba(232,103,42,.1);border:1px solid rgba(232,103,42,.2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:28px;animation:fadeUp .6s ease forwards}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.hero h1{font-family:'DM Serif Display',serif;font-size:64px;line-height:1.1;margin-bottom:20px;animation:fadeUp .6s ease .1s forwards;opacity:0}
+.hero h1 .hi{color:var(--accent)}.hero h1 .line{display:block}
+.hero .tagline{font-size:17px;color:var(--text3);line-height:1.75;max-width:520px;margin:0 auto 40px;animation:fadeUp .6s ease .2s forwards;opacity:0}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;animation:fadeUp .6s ease .3s forwards;opacity:0}
+.store-btn{display:inline-flex;align-items:center;gap:12px;padding:14px 28px;border-radius:16px;font-size:15px;font-weight:600;transition:all .2s}
+.store-btn svg{width:24px;height:24px;flex-shrink:0}.store-btn .btn-text{text-align:left}
+.store-btn .btn-sub{font-size:10px;font-weight:400;opacity:.6;display:block;margin-bottom:1px}
+.store-btn .btn-main{display:block;line-height:1.2}
+.store-btn.play{background:var(--text);color:var(--bg);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.store-btn.play:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.4)}.store-btn.play:active{transform:scale(.97)}
+.store-btn.apple{background:var(--bg3);color:var(--text);border:1px solid var(--border);position:relative;cursor:default}
+.store-btn.apple .coming-soon{position:absolute;top:-10px;right:-10px;background:var(--purple);color:#fff;font-size:9px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;box-shadow:0 4px 12px rgba(155,127,232,.4);animation:pulse-badge 2s infinite}
+@keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.mockup-section{max-width:1080px;margin:0 auto;padding:0 32px 80px;position:relative;z-index:1}
+.mockup-container{display:flex;justify-content:center;gap:24px;perspective:1200px}
+.phone-frame{width:260px;height:540px;border-radius:36px;background:var(--bg2);border:2px solid var(--border);overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04) inset;transition:transform .4s ease}
+.phone-frame:nth-child(1){transform:rotateY(8deg) translateZ(-20px)}
+.phone-frame:nth-child(2){transform:scale(1.08) translateZ(40px);z-index:2}
+.phone-frame:nth-child(3){transform:rotateY(-8deg) translateZ(-20px)}
+.phone-frame:hover{transform:scale(1.04) translateZ(20px)}
+.phone-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.phone-label{position:absolute;bottom:0;left:0;right:0;padding:40px 16px 16px;background:linear-gradient(to top,rgba(17,17,19,.95) 0%,transparent 100%);text-align:center;z-index:2}
+.phone-label span{font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text2);background:var(--bg3);border:1px solid var(--border);padding:5px 14px;border-radius:20px}
+.gallery{max-width:1080px;margin:0 auto;padding:0 32px 80px;position:relative;z-index:1}
+.gallery-header{text-align:center;margin-bottom:40px}
+.gallery-header .sec-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.gallery-header h2{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.2}
+.gallery-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-mask-image:linear-gradient(to right,#000 85%,transparent 100%);mask-image:linear-gradient(to right,#000 85%,transparent 100%)}
+.gallery-scroll::-webkit-scrollbar{display:none}
+.gallery-item{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:24px;overflow:hidden;border:2px solid var(--border);background:var(--bg2);box-shadow:0 12px 40px rgba(0,0,0,.3);transition:transform .3s,border-color .3s}
+.gallery-item:hover{transform:translateY(-6px);border-color:rgba(232,103,42,.3)}
+.gallery-item img{width:100%;height:440px;object-fit:cover;object-position:top center;display:block}
+.gallery-item-label{padding:12px 14px;font-size:12px;font-weight:600;color:var(--text2);text-align:center;background:var(--bg2)}
+.features{max-width:1080px;margin:0 auto;padding:80px 32px;position:relative;z-index:1}
+.features-header{text-align:center;margin-bottom:56px}
+.features-header .sec-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.features-header h2{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.2}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all .25s;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .25s}
+.feature-card:hover{border-color:rgba(232,103,42,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.feature-card h3{font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:10px}
+.feature-card p{font-size:13px;line-height:1.7;color:var(--text3)}
+.media-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0;overflow:hidden;position:relative;z-index:1}
+.media-strip-inner{display:flex;gap:48px;align-items:center;justify-content:center;flex-wrap:wrap;max-width:1080px;margin:0 auto;padding:0 32px}
+.media-type{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--text2)}.media-type .emoji{font-size:24px}
+.cta-section{max-width:1080px;margin:0 auto;padding:100px 32px;text-align:center;position:relative;z-index:1}
+.cta-box{background:linear-gradient(135deg,rgba(232,103,42,.08),rgba(155,127,232,.05));border:1px solid rgba(232,103,42,.2);border-radius:24px;padding:64px 40px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(232,103,42,.15),transparent 70%)}
+.cta-box::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(155,127,232,.1),transparent 70%)}
+.cta-box h2{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.2;margin-bottom:14px;position:relative;z-index:1}
+.cta-box h2 .hi{color:var(--accent)}
+.cta-box p{font-size:15px;color:var(--text3);max-width:420px;margin:0 auto 32px;line-height:1.7;position:relative;z-index:1}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relative;z-index:1}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:40px}
+.footer-brand .logo{font-family:'DM Serif Display',serif;font-size:24px;display:block;margin-bottom:8px}.footer-brand .logo .hi{color:var(--accent)}
+.footer-brand p{font-size:12px;color:var(--text3);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);margin-bottom:14px}
+.footer-col a{display:block;font-size:13px;color:var(--text2);margin-bottom:10px;transition:color .2s}.footer-col a:hover{color:var(--accent)}
+.footer-bottom{max-width:1080px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:11px;color:var(--text3)}.footer-bottom a{font-size:11px;color:var(--text3);transition:color .2s}.footer-bottom a:hover{color:var(--accent)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:860px){.features-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:46px}.phone-frame:nth-child(1),.phone-frame:nth-child(3){display:none}.phone-frame:nth-child(2){transform:none}.phone-frame:nth-child(2):hover{transform:scale(1.02)}.gallery-item{width:180px}.gallery-item img{height:360px}}
+@media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:flex}.hero{padding:130px 20px 60px}.hero h1{font-size:36px}.hero .tagline{font-size:15px}.features-grid{grid-template-columns:1fr}.features{padding:60px 20px}.cta-section{padding:60px 20px}.cta-box{padding:40px 24px}.cta-box h2{font-size:28px}.media-strip-inner{gap:24px}.footer-inner{flex-direction:column;gap:28px}.footer-bottom{flex-direction:column;align-items:flex-start}.mockup-section{padding:0 20px 60px}.phone-frame{width:240px;height:500px}.gallery{padding:0 20px 60px}.gallery-item{width:170px}.gallery-item img{height:340px}.store-btn{padding:12px 20px;font-size:13px}.store-btn svg{width:20px;height:20px}}
+.gallery-wrap{position:relative}
+.gallery-arr{position:absolute;top:50%;transform:translateY(-60%);width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.gallery-arr:hover{background:var(--bg3);border-color:var(--accent);box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.gallery-arr:active{transform:translateY(-60%) scale(.92)}
+.gallery-arr svg{width:18px;height:18px;stroke:var(--text2);stroke-width:2.5}
+.gallery-arr.left{left:-8px}.gallery-arr.right{right:-8px}
+.gallery-arr.hidden{opacity:0;pointer-events:none}
+@media(max-width:640px){.gallery-arr{width:36px;height:36px}.gallery-arr svg{width:14px;height:14px}.gallery-arr.left{left:-4px}.gallery-arr.right{right:-4px}}
 </style>
 </head>
 <body>
-
 <div class="glow-1"></div>
 <div class="glow-2"></div>
 <div class="glow-3"></div>
 
-<!-- Navbar -->
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="#">Arc<span class="hi">log</span></a>
@@ -738,164 +137,40 @@ footer {
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
-  <div class="hero-pill">
-    <span class="dot"></span>
-    Now on Google Play
-  </div>
-  <h1>
-    <span class="line">Your Media,</span>
-    <span class="line">Your <span class="hi">Story</span></span>
-  </h1>
+  <div class="hero-pill"><span class="dot"></span> Now on Google Play</div>
+  <h1><span class="line">Your Media,</span><span class="line">Your <span class="hi">Story</span></span></h1>
   <p class="tagline">Track anime, manga, movies, TV shows &amp; books in one beautiful app. Rate, review, discuss — and never lose track of what you're watching or reading.</p>
   <div class="hero-actions">
-    <a class="play-btn" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
+    <a class="store-btn play" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
-      <div class="btn-text">
-        <span class="btn-sub">GET IT ON</span>
-        <span class="btn-main">Google Play</span>
-      </div>
+      <div class="btn-text"><span class="btn-sub">GET IT ON</span><span class="btn-main">Google Play</span></div>
     </a>
-    <a class="hero-secondary" href="#features">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-      See Features
-    </a>
+    <div class="store-btn apple">
+      <span class="coming-soon">Coming Soon</span>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <div class="btn-text"><span class="btn-sub">DOWNLOAD ON THE</span><span class="btn-main">App Store</span></div>
+    </div>
   </div>
 </section>
 
-<!-- Phone Mockups -->
 <section class="mockup-section reveal">
   <div class="mockup-container">
-    <!-- Phone 1 — Library -->
     <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="mock-title">My Library</div>
-        <div class="mock-sub">3 titles in progress</div>
-        <div class="mock-chip-row">
-          <div class="mock-chip" style="background:var(--accent);color:#fff;">All</div>
-          <div class="mock-chip" style="background:var(--bg3);color:var(--text3);border:1px solid var(--border);">Anime</div>
-          <div class="mock-chip" style="background:var(--bg3);color:var(--text3);border:1px solid var(--border);">Manga</div>
-          <div class="mock-chip" style="background:var(--bg3);color:var(--text3);border:1px solid var(--border);">Movies</div>
-        </div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#e84040,#f0954d);"></div>
-            <div class="mock-card-info">
-              <h4>Attack on Titan</h4>
-              <p>Episode 64 of 87</p>
-            </div>
-          </div>
-          <div class="mock-progress"><div class="mock-progress-fill" style="width:73%"></div></div>
-        </div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#5b9cf6,#9b7fe8);"></div>
-            <div class="mock-card-info">
-              <h4>Solo Leveling</h4>
-              <p>Chapter 98 of 179</p>
-            </div>
-          </div>
-          <div class="mock-progress"><div class="mock-progress-fill" style="width:55%"></div></div>
-        </div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#4caf7d,#5bf6d2);"></div>
-            <div class="mock-card-info">
-              <h4>Interstellar</h4>
-              <p>Completed · ★ 9.2</p>
-            </div>
-          </div>
-          <div class="mock-progress"><div class="mock-progress-fill" style="width:100%"></div></div>
-        </div>
-      </div>
+      <img src="screenshots/explore.jpeg" alt="Arclog Explore" loading="lazy">
+      <div class="phone-label"><span>Explore</span></div>
     </div>
-
-    <!-- Phone 2 — Home (center, larger) -->
     <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen" style="justify-content:flex-start;padding-top:52px;">
-        <div style="width:100%;text-align:left;margin-bottom:16px;">
-          <div style="font-family:'DM Serif Display',serif;font-size:22px;">Good evening,</div>
-          <div style="font-family:'DM Serif Display',serif;font-size:22px;"><span style="color:var(--accent);">Avanish</span> 👋</div>
-        </div>
-        <div class="mock-stat-row">
-          <div class="mock-stat"><div class="num">47</div><div class="lbl">Tracked</div></div>
-          <div class="mock-stat"><div class="num">12</div><div class="lbl">Watching</div></div>
-          <div class="mock-stat"><div class="num">31</div><div class="lbl">Done</div></div>
-        </div>
-        <div style="width:100%;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px;">Trending now</div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#f6bd5b,#e8672a);"></div>
-            <div class="mock-card-info">
-              <h4>Demon Slayer S4</h4>
-              <p>🔥 Trending · 4.8 ★</p>
-            </div>
-          </div>
-        </div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#9b7fe8,#5b9cf6);"></div>
-            <div class="mock-card-info">
-              <h4>Jujutsu Kaisen</h4>
-              <p>🔥 Popular · 4.7 ★</p>
-            </div>
-          </div>
-        </div>
-        <div class="mock-card">
-          <div class="mock-card-row">
-            <div class="mock-thumb" style="background:linear-gradient(135deg,#5bf6d2,#4caf7d);"></div>
-            <div class="mock-card-info">
-              <h4>One Piece Ch. 1120</h4>
-              <p>📖 New chapter · 4.9 ★</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img src="screenshots/home.jpeg" alt="Arclog Home" loading="lazy">
+      <div class="phone-label"><span>Home</span></div>
     </div>
-
-    <!-- Phone 3 — Community -->
     <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="mock-title">Community</div>
-        <div class="mock-sub">Latest reviews</div>
-        <div class="mock-card" style="padding:14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:12px;">A</div>
-            <div>
-              <div style="font-size:11px;font-weight:600;">animeking99</div>
-              <div style="font-size:9px;color:var(--text3);">2 hours ago</div>
-            </div>
-          </div>
-          <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.6;">"One of the best arcs in anime history. The pacing was perfect."</div>
-          <div style="display:flex;gap:12px;margin-top:8px;font-size:10px;color:var(--text3);">
-            <span>❤️ 24</span>
-            <span>💬 8</span>
-          </div>
-        </div>
-        <div class="mock-card" style="padding:14px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;font-size:12px;">S</div>
-            <div>
-              <div style="font-size:11px;font-weight:600;">sakura_fan</div>
-              <div style="font-size:9px;color:var(--text3);">5 hours ago</div>
-            </div>
-          </div>
-          <div style="font-size:11px;color:var(--text2);font-style:italic;line-height:1.6;">"Finally completed my watchlist! 150 titles tracked 🎉"</div>
-          <div style="display:flex;gap:12px;margin-top:8px;font-size:10px;color:var(--text3);">
-            <span>❤️ 42</span>
-            <span>💬 15</span>
-          </div>
-        </div>
-      </div>
+      <img src="screenshots/profile.jpeg" alt="Arclog Profile" loading="lazy">
+      <div class="phone-label"><span>Profile</span></div>
     </div>
   </div>
 </section>
 
-<!-- Media Types Strip -->
 <div class="media-strip reveal">
   <div class="media-strip-inner">
     <div class="media-type"><span class="emoji">🎬</span> Anime</div>
@@ -906,62 +181,58 @@ footer {
   </div>
 </div>
 
-<!-- Features -->
+<section class="gallery reveal" id="screenshots">
+  <div class="gallery-header">
+    <div class="sec-label">App Preview</div>
+    <h2>See Arclog in <span style="color:var(--accent)">action</span></h2>
+  </div>
+  <div class="gallery-wrap">
+    <button class="gallery-arr left hidden" id="galLeft" onclick="scrollGallery(-1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="gallery-scroll" id="galScroll">
+    <div class="gallery-item"><img src="screenshots/home.jpeg" alt="Home" loading="lazy"><div class="gallery-item-label">Home</div></div>
+    <div class="gallery-item"><img src="screenshots/explore.jpeg" alt="Explore" loading="lazy"><div class="gallery-item-label">Explore</div></div>
+    <div class="gallery-item"><img src="screenshots/library.jpeg" alt="Library" loading="lazy"><div class="gallery-item-label">Library</div></div>
+    <div class="gallery-item"><img src="screenshots/detail.jpeg" alt="Track Progress" loading="lazy"><div class="gallery-item-label">Track Progress</div></div>
+    <div class="gallery-item"><img src="screenshots/discussion.jpeg" alt="Discuss" loading="lazy"><div class="gallery-item-label">Discuss</div></div>
+    <div class="gallery-item"><img src="screenshots/profile.jpeg" alt="Your Stats" loading="lazy"><div class="gallery-item-label">Your Stats</div></div>
+    </div>
+    <button class="gallery-arr right" id="galRight" onclick="scrollGallery(1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</section>
+
 <section class="features" id="features">
   <div class="features-header reveal">
     <div class="sec-label">Features</div>
     <h2>Everything you need to<br>track your <span style="color:var(--accent)">obsessions</span></h2>
   </div>
   <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(232,103,42,.1);">📋</div>
-      <h3>Smart Library</h3>
-      <p>Track every anime, manga, movie, TV show, and book in one place with episode-level progress.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(91,156,246,.1);">⭐</div>
-      <h3>Rate &amp; Review</h3>
-      <p>Score titles, write detailed reviews, and help others discover their next favourite.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(155,127,232,.1);">💬</div>
-      <h3>Community</h3>
-      <p>Join discussions, comment on reviews, and connect with people who share your taste.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(76,175,125,.1);">📊</div>
-      <h3>Stats &amp; Insights</h3>
-      <p>See your watching habits visualised with breakdowns by genre, type, and completion rate.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(246,189,91,.1);">🔥</div>
-      <h3>Trending &amp; Discover</h3>
-      <p>Find what's hot right now, explore curated picks, and never run out of things to watch.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon" style="background:rgba(91,246,210,.1);">☁️</div>
-      <h3>Cloud Sync</h3>
-      <p>Your library syncs across devices. Sign in anywhere and pick up where you left off.</p>
-    </div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(232,103,42,.1)">📋</div><h3>Smart Library</h3><p>Track every anime, manga, movie, TV show, and book in one place with episode-level progress.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(91,156,246,.1)">⭐</div><h3>Rate &amp; Review</h3><p>Score titles, write detailed reviews, and help others discover their next favourite.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(155,127,232,.1)">💬</div><h3>Community</h3><p>Join discussions, comment on reviews, and connect with people who share your taste.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(76,175,125,.1)">📊</div><h3>Stats &amp; Insights</h3><p>See your watching habits visualised with breakdowns by genre, type, and completion rate.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(246,189,91,.1)">🔥</div><h3>Trending &amp; Discover</h3><p>Find what's hot right now, explore curated picks, and never run out of things to watch.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon" style="background:rgba(91,246,210,.1)">☁️</div><h3>Cloud Sync</h3><p>Your library syncs across devices. Sign in anywhere and pick up where you left off.</p></div>
   </div>
 </section>
 
-<!-- CTA Section -->
 <section class="cta-section">
   <div class="cta-box reveal">
     <h2>Start tracking <span class="hi">today</span></h2>
     <p>Join thousands of fans who use Arclog to track their anime, manga, movies, and more. It's free.</p>
-    <a class="play-btn" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
-      <div class="btn-text">
-        <span class="btn-sub">GET IT ON</span>
-        <span class="btn-main">Google Play</span>
+    <div class="cta-buttons">
+      <a class="store-btn play" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
+        <div class="btn-text"><span class="btn-sub">GET IT ON</span><span class="btn-main">Google Play</span></div>
+      </a>
+      <div class="store-btn apple">
+        <span class="coming-soon">Coming Soon</span>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="btn-text"><span class="btn-sub">DOWNLOAD ON THE</span><span class="btn-main">App Store</span></div>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -985,40 +256,18 @@ footer {
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Arclog. All rights reserved.</p>
-    <div>
-      <a href="privacy-policy.html">Privacy</a> &nbsp;·&nbsp; <a href="terms-and-conditions.html">Terms</a>
-    </div>
+    <div><a href="privacy-policy.html">Privacy</a> &nbsp;·&nbsp; <a href="terms-and-conditions.html">Terms</a></div>
   </div>
 </footer>
 
 <script>
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40)});
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',(e)=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+function scrollGallery(dir){const g=document.getElementById('galScroll');g.scrollBy({left:dir*260,behavior:'smooth'})}
+const galScroll=document.getElementById('galScroll');
+if(galScroll){galScroll.addEventListener('scroll',()=>{const l=document.getElementById('galLeft'),r=document.getElementById('galRight');if(l)l.classList.toggle('hidden',galScroll.scrollLeft<10);if(r)r.classList.toggle('hidden',galScroll.scrollLeft+galScroll.clientWidth>=galScroll.scrollWidth-10)})}
 </script>
-
 </body>
 </html>
