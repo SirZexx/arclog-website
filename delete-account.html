@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arclog - Delete Your Account</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111113;
+  --bg2: #1a1a1e;
+  --bg3: #222228;
+  --bg4: #2a2a32;
+  --accent: #e8672a;
+  --accent2: #f0954d;
+  --text: #f0eeea;
+  --text2: #ccc8c2;
+  --text3: #9e9a95;
+  --border: #2e2e36;
+  --card: #1e1e24;
+  --green: #4caf7d;
+  --blue: #5b9cf6;
+  --purple: #9b7fe8;
+  --yellow: #f6bd5b;
+  --red: #e84040;
+  --r: 14px;
+  --rs: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* Ambient background glow */
+.bg-glow {
+  position: fixed;
+  top: -180px;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232,64,64,.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-glow-2 {
+  position: fixed;
+  bottom: -200px;
+  left: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(155,127,232,.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Shell */
+.shell {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header / Nav */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 20px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.logo:hover { opacity: .8; }
+.logo .hi { color: var(--accent); }
+
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  transition: all .2s;
+  cursor: pointer;
+}
+.back-link:hover { border-color: var(--accent); color: var(--text2); }
+.back-link svg { width: 14px; height: 14px; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 32px 0 48px;
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--accent));
+  border-radius: 2px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(232,64,64,.1);
+  color: var(--red);
+  border: 1px solid rgba(232,64,64,.2);
+  margin-bottom: 20px;
+}
+.hero-badge svg { width: 13px; height: 13px; }
+
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero h1 .hi { color: var(--red); }
+
+.hero .subtitle {
+  font-size: 14px;
+  color: var(--text3);
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* Sections */
+.policy-section {
+  margin-bottom: 38px;
+  scroll-margin-top: 100px;
+}
+
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(232,103,42,.1);
+  border: 1px solid rgba(232,103,42,.25);
+  font-family: 'DM Serif Display', serif;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.policy-section h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.policy-section p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+.policy-section p:last-child { margin-bottom: 0; }
+
+.policy-section strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Steps */
+.steps {
+  margin: 20px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  transition: all .2s;
+}
+.step:hover {
+  border-color: rgba(232,103,42,.3);
+}
+.step-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(232,103,42,.12);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+  border: 1px solid rgba(232,103,42,.25);
+  font-family: 'DM Serif Display', serif;
+}
+.step-text {
+  color: var(--text2);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.step-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Info Cards */
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.info-card.red {
+  background: linear-gradient(135deg, rgba(232,64,64,.06), rgba(232,103,42,.03));
+  border-color: rgba(232,64,64,.2);
+}
+.info-card.accent {
+  background: linear-gradient(135deg, rgba(232,103,42,.06), rgba(155,127,232,.04));
+  border-color: rgba(232,103,42,.2);
+}
+
+.info-card-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info-card-title svg { width: 13px; height: 13px; }
+.info-card.red .info-card-title { color: var(--red); }
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+.info-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+.info-card li:last-child { margin-bottom: 0; }
+.info-card li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.info-card.red li::before { background: var(--red); }
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 38px 0;
+  position: relative;
+}
+.divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+}
+.footer .logo {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.footer p {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.7;
+}
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+
+/* Scroll-to-top */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(232,103,42,.4);
+  z-index: 80;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all .3s;
+  pointer-events: none;
+}
+.scroll-top.show {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+.scroll-top:hover { box-shadow: 0 6px 28px rgba(232,103,42,.55); }
+.scroll-top:active { transform: scale(.9); }
+.scroll-top svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2.5; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .shell { padding: 0 18px; }
+  .hero h1 { font-size: 30px; }
+  .policy-section h2 { font-size: 19px; }
+  .top-bar { padding: 20px 0 16px; margin-bottom: 28px; }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.animate {
+  opacity: 0;
+  animation: fadeUp .5s ease forwards;
+}
+.animate-d1 { animation-delay: .05s; }
+.animate-d2 { animation-delay: .1s; }
+.animate-d3 { animation-delay: .15s; }
+.animate-d4 { animation-delay: .2s; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-glow-2"></div>
+
+<div class="shell">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <a class="logo" href="index.html">Arc<span class="hi">log</span></a>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero animate">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+      Account
+    </div>
+    <h1>Delete Your <span class="hi">Account</span></h1>
+    <p class="subtitle">How to permanently delete your Arclog account and all associated data from our servers.</p>
+  </div>
+
+  <!-- Section 1: How to Delete -->
+  <div class="policy-section animate animate-d1" id="s1">
+    <div class="section-num">1</div>
+    <h2>How to Delete Your Account</h2>
+    <p>You can delete your account directly from the Arclog app. No need to contact us or send an email.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Open the Arclog app and log in to your account.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Go to your <strong>Profile</strong> tab and tap the <strong>Settings</strong> icon (gear icon in the top right).</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Scroll down to the <strong>Danger Zone</strong> section at the bottom of Settings.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Tap <strong>Delete Account</strong>. A confirmation prompt will appear showing what will be deleted.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">Tap <strong>Permanently Delete</strong> to confirm. A final confirmation dialog will appear to make sure this is what you want.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 2: What Gets Deleted -->
+  <div class="policy-section animate animate-d2" id="s2">
+    <div class="section-num">2</div>
+    <h2>What Gets Deleted</h2>
+    <p>When you delete your account, the following data is permanently removed from our servers:</p>
+
+    <div class="info-card red">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Permanently Deleted Data
+      </div>
+      <ul>
+        <li>Your profile information (username, display name, bio, avatar)</li>
+        <li>Your entire media library (all titles, progress, and status)</li>
+        <li>All your ratings and reviews</li>
+        <li>All your comments and discussion posts</li>
+        <li>All your likes and activity history</li>
+        <li>Your authentication credentials (email, password, or OAuth link)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 3: Important Things to Know -->
+  <div class="policy-section animate animate-d3" id="s3">
+    <div class="section-num">3</div>
+    <h2>Important Things to Know</h2>
+    <p><strong>This action is irreversible.</strong> Once your account is deleted, there is no way to recover your data, restore your library, or reactivate your account. You would need to create a brand new account to use Arclog again.</p>
+    <p><strong>Deletion happens immediately.</strong> Your data is removed from our database right away with no delay or waiting period.</p>
+    <p><strong>No retention period.</strong> Unlike some services that hold your data for 30 or 90 days after deletion, Arclog removes your data instantly when you confirm the deletion.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Section 4: Can't Access Your Account -->
+  <div class="policy-section animate animate-d4" id="s4">
+    <div class="section-num">4</div>
+    <h2>Can't Access Your Account?</h2>
+    <p>If you are unable to log in and need help deleting your account, you can contact us directly and we will process your request manually.</p>
+
+    <div class="info-card accent">
+      <div class="info-card-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Us
+      </div>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:contact.avanishramana@gmail.com" style="color:var(--accent)">contact.avanishramana@gmail.com</a></li>
+        <li><strong>Subject line:</strong> Account Deletion Request</li>
+        <li><strong>Include:</strong> The email address associated with your Arclog account</li>
+        <li><strong>Response time:</strong> We aim to process manual deletion requests within 48 hours</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a class="logo" href="index.html">Arc<span class="hi">log</span></a>
+    <p>Track. Discuss. Share.</p>
+    <p style="margin-top: 8px;"><a href="privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms-and-conditions.html">Terms &amp; Conditions</a></p>
+    <p style="margin-top: 12px; font-size: 11px;">&copy; 2026 Arclog. All rights reserved.</p>
+  </div>
+
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>
