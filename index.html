@@ -31,6 +31,12 @@ nav.scrolled{background:rgba(17,17,19,.85);backdrop-filter:blur(16px);border-bot
 .nav-link{font-size:13px;font-weight:500;color:var(--text3);transition:color .2s;cursor:pointer}.nav-link:hover{color:var(--text)}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:28px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;transition:all .2s;box-shadow:0 4px 18px rgba(232,103,42,.35)}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,103,42,.45)}.nav-cta:active{transform:scale(.96)}.nav-cta svg{width:16px;height:16px}
+.nav-dropdown{position:relative}
+.nav-drop-trigger{display:flex;align-items:center;cursor:pointer;user-select:none}
+.nav-drop-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:6px;min-width:160px;box-shadow:0 12px 32px rgba(0,0,0,.4);z-index:200}
+.nav-dropdown.open .nav-drop-menu{display:block}
+.nav-drop-menu a{display:block;padding:10px 14px;font-size:13px;font-weight:500;color:var(--text2);border-radius:var(--rs);transition:all .15s;text-decoration:none}
+.nav-drop-menu a:hover{background:var(--bg3);color:var(--accent)}
 .mobile-toggle{display:none;width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);align-items:center;justify-content:center;cursor:pointer;color:var(--text2)}.mobile-toggle svg{width:18px;height:18px}
 .hero{max-width:1080px;margin:0 auto;padding:160px 32px 80px;text-align:center;position:relative;z-index:1}
 .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:24px;background:rgba(232,103,42,.1);border:1px solid rgba(232,103,42,.2);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:28px;animation:fadeUp .6s ease forwards}
@@ -126,7 +132,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
       <a class="nav-link" href="#features">Features</a>
       <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
       <a class="nav-link" href="terms-and-conditions.html">Terms &amp; Conditions</a>
-      <a class="nav-link" href="delete-account.html">Delete Account</a>
+      <div class="nav-dropdown">
+        <a class="nav-link nav-drop-trigger" onclick="this.parentElement.classList.toggle('open')">Manage Data <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-left:4px;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav-drop-menu">
+          <a href="delete-data.html">Delete Data</a>
+          <a href="delete-account.html">Delete Account</a>
+        </div>
+      </div>
       <a class="nav-cta" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
         Download
@@ -249,6 +261,10 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
       <h4>Legal</h4>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+    </div>
+    <div class="footer-col">
+      <h4>Manage Data</h4>
+      <a href="delete-data.html">Delete Data</a>
       <a href="delete-account.html">Delete Account</a>
     </div>
     <div class="footer-col">
@@ -258,7 +274,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Arclog. All rights reserved.</p>
-    <div><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms-and-conditions.html">Terms &amp; Conditions</a></div>
+    <div><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms-and-conditions.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="delete-data.html">Delete Data</a> &nbsp;·&nbsp; <a href="delete-account.html">Delete Account</a></div>
   </div>
 </footer>
 
@@ -267,6 +283,7 @@ window.addEventListener('scroll',()=>{document.getElementById('navbar').classLis
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',(e)=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-dropdown'))document.querySelectorAll('.nav-dropdown.open').forEach(d=>d.classList.remove('open'))});
 function scrollGallery(dir){const g=document.getElementById('galScroll');g.scrollBy({left:dir*260,behavior:'smooth'})}
 const galScroll=document.getElementById('galScroll');
 if(galScroll){galScroll.addEventListener('scroll',()=>{const l=document.getElementById('galLeft'),r=document.getElementById('galRight');if(l)l.classList.toggle('hidden',galScroll.scrollLeft<10);if(r)r.classList.toggle('hidden',galScroll.scrollLeft+galScroll.clientWidth>=galScroll.scrollWidth-10)})}
