@@ -50,24 +50,21 @@ nav.scrolled{background:rgba(17,17,19,.85);backdrop-filter:blur(16px);border-bot
 @keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .mockup-section{max-width:1080px;margin:0 auto;padding:0 32px 80px;position:relative;z-index:1}
 .mockup-container{display:flex;justify-content:center;gap:24px;perspective:1200px}
-.phone-frame{width:260px;height:540px;border-radius:36px;background:var(--bg2);border:2px solid var(--border);overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04) inset;transition:transform .4s ease}
-.phone-frame:nth-child(1){transform:rotateY(8deg) translateZ(-20px)}
-.phone-frame:nth-child(2){transform:scale(1.08) translateZ(40px);z-index:2}
-.phone-frame:nth-child(3){transform:rotateY(-8deg) translateZ(-20px)}
+.phone-frame{width:280px;height:auto;overflow:visible;position:relative;transition:transform .4s ease}
+.phone-frame:nth-child(1){transform:rotateY(6deg) translateZ(-20px)}
+.phone-frame:nth-child(2){transform:scale(1.06) translateZ(40px);z-index:2}
+.phone-frame:nth-child(3){transform:rotateY(-6deg) translateZ(-20px)}
 .phone-frame:hover{transform:scale(1.04) translateZ(20px)}
-.phone-frame img{width:100%;height:calc(100% - 16px);margin-top:16px;object-fit:cover;object-position:top center;display:block}
-.phone-label{position:absolute;bottom:0;left:0;right:0;padding:40px 16px 16px;background:linear-gradient(to top,rgba(17,17,19,.95) 0%,transparent 100%);text-align:center;z-index:2}
-.phone-label span{font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--text2);background:var(--bg3);border:1px solid var(--border);padding:5px 14px;border-radius:20px}
+.phone-frame img{width:100%;height:auto;display:block}
 .gallery{max-width:1080px;margin:0 auto;padding:60px 32px 80px;position:relative;z-index:1}
 .gallery-header{text-align:center;margin-bottom:40px}
 .gallery-header .sec-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .gallery-header h2{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.2}
 .gallery-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;-webkit-mask-image:linear-gradient(to right,#000 85%,transparent 100%);mask-image:linear-gradient(to right,#000 85%,transparent 100%)}
 .gallery-scroll::-webkit-scrollbar{display:none}
-.gallery-item{flex-shrink:0;width:220px;scroll-snap-align:start;border-radius:24px;overflow:hidden;border:2px solid var(--border);background:var(--bg2);box-shadow:0 12px 40px rgba(0,0,0,.3);transition:transform .3s,border-color .3s}
-.gallery-item:hover{transform:translateY(-6px);border-color:rgba(232,103,42,.3)}
-.gallery-item img{width:100%;height:426px;margin-top:14px;object-fit:cover;object-position:top center;display:block}
-.gallery-item-label{padding:12px 14px;font-size:12px;font-weight:600;color:var(--text2);text-align:center;background:var(--bg2)}
+.gallery-item{flex-shrink:0;width:260px;scroll-snap-align:start;border-radius:20px;overflow:hidden;background:transparent;transition:transform .3s}
+.gallery-item:hover{transform:translateY(-6px)}
+.gallery-item img{width:100%;height:auto;display:block}
 .features{max-width:1080px;margin:0 auto;padding:80px 32px;position:relative;z-index:1}
 .features-header{text-align:center;margin-bottom:56px}
 .features-header .sec-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
@@ -102,8 +99,8 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
-@media(max-width:860px){.features-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:46px}.phone-frame:nth-child(1),.phone-frame:nth-child(3){display:none}.phone-frame:nth-child(2){transform:none}.phone-frame:nth-child(2):hover{transform:scale(1.02)}.gallery-item{width:180px}.gallery-item img{height:360px}}
-@media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:flex}.hero{padding:130px 20px 60px}.hero h1{font-size:36px}.hero .tagline{font-size:15px}.features-grid{grid-template-columns:1fr}.features{padding:60px 20px}.cta-section{padding:60px 20px}.cta-box{padding:40px 24px}.cta-box h2{font-size:28px}.media-strip-inner{gap:24px}.footer-inner{flex-direction:column;gap:28px}.footer-bottom{flex-direction:column;align-items:flex-start}.mockup-section{padding:0 20px 60px}.phone-frame{width:240px;height:500px}.gallery{padding:40px 20px 60px}.gallery-item{width:170px}.gallery-item img{height:340px}.store-btn{padding:12px 20px;font-size:13px}.store-btn svg{width:20px;height:20px}}
+@media(max-width:860px){.features-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:46px}.phone-frame:nth-child(1),.phone-frame:nth-child(3){display:none}.phone-frame:nth-child(2){transform:none}.phone-frame:nth-child(2):hover{transform:scale(1.02)}.gallery-item{width:220px}}
+@media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:flex}.hero{padding:130px 20px 60px}.hero h1{font-size:36px}.hero .tagline{font-size:15px}.features-grid{grid-template-columns:1fr}.features{padding:60px 20px}.cta-section{padding:60px 20px}.cta-box{padding:40px 24px}.cta-box h2{font-size:28px}.media-strip-inner{gap:24px}.footer-inner{flex-direction:column;gap:28px}.footer-bottom{flex-direction:column;align-items:flex-start}.mockup-section{padding:0 20px 60px}.phone-frame{width:260px}.gallery{padding:40px 20px 60px}.gallery-item{width:200px}.store-btn{padding:12px 20px;font-size:13px}.store-btn svg{width:20px;height:20px}}
 .gallery-wrap{position:relative}
 .gallery-arr{position:absolute;top:50%;transform:translateY(-60%);width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .gallery-arr:hover{background:var(--bg3);border-color:var(--accent);box-shadow:0 6px 24px rgba(0,0,0,.5)}
@@ -139,7 +136,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 
 <section class="hero">
   <div class="hero-pill"><span class="dot"></span> Now on Google Play</div>
-  <h1><span class="line">Track, Rate, </span> <span class="hi">& Discuss</span></h1>
+  <h1><span class="line">Track, Rate</span><span class="line">&amp; <span class="hi">Discuss</span></span></h1>
   <p class="tagline">Track anime, manga, movies, TV shows &amp; books in one beautiful app. Rate, review, discuss and never lose track of what you're watching or reading.</p>
   <div class="hero-actions">
     <a class="store-btn play" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
@@ -157,16 +154,13 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 <section class="mockup-section reveal">
   <div class="mockup-container">
     <div class="phone-frame">
-      <img src="screenshots/explore.jpeg" alt="Arclog Explore" loading="lazy">
-      <div class="phone-label"><span>Explore</span></div>
+      <img src="screenshots/02_explore.png" alt="Arclog Explore" loading="lazy">
     </div>
     <div class="phone-frame">
-      <img src="screenshots/home.jpeg" alt="Arclog Home" loading="lazy">
-      <div class="phone-label"><span>Home</span></div>
+      <img src="screenshots/01_home.png" alt="Arclog Home" loading="lazy">
     </div>
     <div class="phone-frame">
-      <img src="screenshots/profile.jpeg" alt="Arclog Profile" loading="lazy">
-      <div class="phone-label"><span>Profile</span></div>
+      <img src="screenshots/04_profile.png" alt="Arclog Profile" loading="lazy">
     </div>
   </div>
 </section>
@@ -189,12 +183,12 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
   <div class="gallery-wrap">
     <button class="gallery-arr left hidden" id="galLeft" onclick="scrollGallery(-1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="15 18 9 12 15 6"/></svg></button>
     <div class="gallery-scroll" id="galScroll">
-    <div class="gallery-item"><img src="screenshots/home.jpeg" alt="Home" loading="lazy"><div class="gallery-item-label">Home</div></div>
-    <div class="gallery-item"><img src="screenshots/explore.jpeg" alt="Explore" loading="lazy"><div class="gallery-item-label">Explore</div></div>
-    <div class="gallery-item"><img src="screenshots/library.jpeg" alt="Library" loading="lazy"><div class="gallery-item-label">Library</div></div>
-    <div class="gallery-item"><img src="screenshots/detail.jpeg" alt="Track Progress" loading="lazy"><div class="gallery-item-label">Track Progress</div></div>
-    <div class="gallery-item"><img src="screenshots/discussion.jpeg" alt="Discuss" loading="lazy"><div class="gallery-item-label">Discuss</div></div>
-    <div class="gallery-item"><img src="screenshots/profile.jpeg" alt="Your Stats" loading="lazy"><div class="gallery-item-label">Your Stats</div></div>
+    <div class="gallery-item"><img src="screenshots/01_home.png" alt="Home" loading="lazy"></div>
+    <div class="gallery-item"><img src="screenshots/02_explore.png" alt="Explore" loading="lazy"></div>
+    <div class="gallery-item"><img src="screenshots/03_library.png" alt="Library" loading="lazy"></div>
+    <div class="gallery-item"><img src="screenshots/05_detail.png" alt="Track Progress" loading="lazy"></div>
+    <div class="gallery-item"><img src="screenshots/06_discussion.png" alt="Discuss" loading="lazy"></div>
+    <div class="gallery-item"><img src="screenshots/04_profile.png" alt="Your Stats" loading="lazy"></div>
     </div>
     <button class="gallery-arr right" id="galRight" onclick="scrollGallery(1)"><svg viewBox="0 0 24 24" fill="none"><polyline points="9 18 15 12 9 6"/></svg></button>
   </div>
@@ -251,7 +245,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="mailto:contact.avanishramana@gmail.com">contact.avanishramana@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#e685898892878592c8879087888f958e94878b878887a6818b878f8ac885898b"><span class="__cf_email__" data-cfemail="52313d3c263331267c3324333c3b213a20333f333c3312353f333b3e7c313d3f">[email&#160;protected]</span></a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -260,14 +254,11 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40)});
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',(e)=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
 function scrollGallery(dir){const g=document.getElementById('galScroll');g.scrollBy({left:dir*260,behavior:'smooth'})}
 const galScroll=document.getElementById('galScroll');
-if(galScroll){galScroll.addEventListener('scroll',()=>{const l=document.getElementById('galLeft'),r=document.getElementById('galRight');if(l)l.classList.toggle('hidden',galScroll.scrollLeft<10);if(r)r.classList.toggle('hidden',galScroll.scrollLeft+galScroll.clientWidth>=galScroll.scrollWidth-10)})}
-</script>
-</body>
-</html>
+if(galScroll){galScroll.addEventListener('scroll',()=>{cons
