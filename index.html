@@ -49,8 +49,18 @@ nav.scrolled{background:rgba(17,17,19,.85);backdrop-filter:blur(16px);border-bot
 .store-btn svg{width:24px;height:24px;flex-shrink:0}.store-btn .btn-text{text-align:left}
 .store-btn .btn-sub{font-size:10px;font-weight:400;opacity:.6;display:block;margin-bottom:1px}
 .store-btn .btn-main{display:block;line-height:1.2}
-.store-btn.play{background:var(--text);color:var(--bg);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.store-btn.play:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.4)}.store-btn.play:active{transform:scale(.97)}
+.store-btn.play{background:var(--bg3);color:var(--text);border:1px solid var(--border);position:relative;cursor:default}
+.store-btn.play .coming-soon{position:absolute;top:-10px;right:-10px;background:var(--green);color:#fff;font-size:9px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;box-shadow:0 4px 12px rgba(76,175,125,.4);animation:pulse-badge 2s infinite}
+.beta-banner{max-width:640px;margin:0 auto;padding:0 32px;position:relative;z-index:1;animation:fadeUp .6s ease .4s forwards;opacity:0}
+.beta-card{background:linear-gradient(135deg,rgba(76,175,125,.1),rgba(91,156,246,.06));border:1px solid rgba(76,175,125,.25);border-radius:20px;padding:32px 36px;text-align:center;position:relative;overflow:hidden}
+.beta-card::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle,rgba(76,175,125,.12),transparent 70%)}
+.beta-card .beta-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;background:rgba(76,175,125,.15);border:1px solid rgba(76,175,125,.3);font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.beta-card .beta-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.beta-card h3{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:8px;position:relative;z-index:1}
+.beta-card p{font-size:13px;color:var(--text3);line-height:1.7;max-width:440px;margin:0 auto 20px;position:relative;z-index:1}
+.beta-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:28px;background:var(--green);color:#fff;font-size:13px;font-weight:600;transition:all .2s;box-shadow:0 4px 18px rgba(76,175,125,.35);position:relative;z-index:1}
+.beta-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(76,175,125,.45)}.beta-btn:active{transform:scale(.96)}
+.beta-btn svg{width:16px;height:16px}
 .store-btn.apple{background:var(--bg3);color:var(--text);border:1px solid var(--border);position:relative;cursor:default}
 .store-btn.apple .coming-soon{position:absolute;top:-10px;right:-10px;background:var(--purple);color:#fff;font-size:9px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:20px;text-transform:uppercase;box-shadow:0 4px 12px rgba(155,127,232,.4);animation:pulse-badge 2s infinite}
 @keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
@@ -139,9 +149,9 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
           <a href="delete-account.html">Delete Account</a>
         </div>
       </div>
-      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
-        Download
+      <a class="nav-cta" href="https://groups.google.com/g/arclog-closed-testing" target="_blank" rel="noopener" style="background:var(--green);box-shadow:0 4px 18px rgba(76,175,125,.35)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Join Beta
       </a>
     </div>
     <div class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=this.dataset.open?'none':'flex';this.dataset.open=this.dataset.open?'':'1'">
@@ -151,14 +161,15 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 </nav>
 
 <section class="hero">
-  <div class="hero-pill"><span class="dot"></span> Now on Google Play</div>
+  <div class="hero-pill"><span class="dot"></span> Beta Testing in Progress</div>
   <h1><span class="line">Track, Rate</span><span class="line">&amp; <span class="hi">Discuss</span></span></h1>
   <p class="tagline">Track anime, manga, movies, TV shows &amp; books in one beautiful app. Rate, review, discuss and never lose track of what you're watching or reading.</p>
   <div class="hero-actions">
-    <a class="store-btn play" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
+    <div class="store-btn play" style="cursor:default;background:var(--bg3);color:var(--text);border:1px solid var(--border);box-shadow:none;position:relative">
+      <span class="coming-soon">Coming Soon</span>
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
       <div class="btn-text"><span class="btn-sub">GET IT ON</span><span class="btn-main">Google Play</span></div>
-    </a>
+    </div>
     <div class="store-btn apple">
       <span class="coming-soon">Coming Soon</span>
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -167,7 +178,19 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
   </div>
 </section>
 
-<section class="mockup-section reveal">
+<div class="beta-banner">
+  <div class="beta-card">
+    <div class="beta-tag"><span class="dot"></span> Open Beta</div>
+    <h3>Join the <span style="color:var(--green)">Beta</span></h3>
+    <p>We're running a closed beta on Google Play. Help us test Arclog before launch — join as a tester and be the first to experience it.</p>
+    <a class="beta-btn" href="https://groups.google.com/g/arclog-closed-testing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Join Beta Testing
+    </a>
+  </div>
+</div>
+
+<section class="mockup-section reveal" style="padding-top:60px">
   <div class="mockup-container">
     <div class="phone-frame">
       <img src="screenshots/explore.jpeg" alt="Arclog Explore" loading="lazy">
@@ -230,13 +253,20 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 
 <section class="cta-section">
   <div class="cta-box reveal">
-    <h2>Start tracking <span class="hi">today</span></h2>
-    <p>Join thousands of fans who use Arclog to track their anime, manga, movies, and more. It's free.</p>
+    <h2>Be the first to <span class="hi">try it</span></h2>
+    <p>Join our closed beta and help shape Arclog before it launches on the Play Store and App Store. It's free.</p>
     <div class="cta-buttons">
-      <a class="store-btn play" href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">
+      <a class="beta-btn" href="https://groups.google.com/g/arclog-closed-testing" target="_blank" rel="noopener" style="padding:14px 32px;font-size:15px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Join Beta Testing
+      </a>
+    </div>
+    <div class="cta-buttons" style="margin-top:20px">
+      <div class="store-btn play" style="cursor:default;background:var(--bg3);color:var(--text);border:1px solid var(--border);box-shadow:none;position:relative">
+        <span class="coming-soon">Coming Soon</span>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L18 12.81l-2.302-2.302 2-1zm-3.906-3.199L4.864 0.18l10.937 6.333-2.009 1.796z"/></svg>
         <div class="btn-text"><span class="btn-sub">GET IT ON</span><span class="btn-main">Google Play</span></div>
-      </a>
+      </div>
       <div class="store-btn apple">
         <span class="coming-soon">Coming Soon</span>
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -254,7 +284,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
     </div>
     <div class="footer-col">
       <h4>App</h4>
-      <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank" rel="noopener">Google Play</a>
+      <a href="https://groups.google.com/g/arclog-closed-testing" target="_blank" rel="noopener">Join Beta</a>
       <a href="#features">Features</a>
     </div>
     <div class="footer-col">
@@ -269,7 +299,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="mailto:contact.avanishramana@gmail.com">contact.avanishramana@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#771418190316140359160116191e041f05161a16191637101a161e1b5914181a"><span class="__cf_email__" data-cfemail="c7a4a8a9b3a6a4b3e9a6b1a6a9aeb4afb5a6aaa6a9a687a0aaa6aeabe9a4a8aa">[email&#160;protected]</span></a>
     </div>
   </div>
   <div class="footer-bottom">
