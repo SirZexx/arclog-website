@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arclog - About</title>
+<meta name="description" content="About the developer behind Arclog. Why it was built, how it was built, and what is next.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111113; --bg2: #1a1a1e; --bg3: #222228; --bg4: #2a2a32;
+  --accent: #e8672a; --accent2: #f0954d;
+  --text: #f0eeea; --text2: #ccc8c2; --text3: #9e9a95;
+  --border: #2e2e36; --card: #1e1e24;
+  --green: #4caf7d; --blue: #5b9cf6; --purple: #9b7fe8; --yellow: #f6bd5b;
+  --r: 14px; --rs: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; background: var(--bg); color: var(--text); font-family: 'Sora', sans-serif; font-size: 14px; scroll-behavior: smooth; }
+body { min-height: 100%; background: var(--bg); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+.bg-glow { position: fixed; top: -180px; right: -120px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(232,103,42,.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+.bg-glow-2 { position: fixed; bottom: -200px; left: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(155,127,232,.06) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+
+.shell { max-width: 720px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+.top-bar { display: flex; align-items: center; justify-content: space-between; padding: 28px 0 20px; position: sticky; top: 0; background: var(--bg); z-index: 50; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.logo { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--text); transition: opacity .2s; }
+.logo:hover { opacity: .8; }
+.logo .hi { color: var(--accent); }
+.back-link { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 500; color: var(--text3); padding: 8px 14px; border-radius: 20px; background: var(--bg3); border: 1px solid var(--border); transition: all .2s; cursor: pointer; }
+.back-link:hover { border-color: var(--accent); color: var(--text2); }
+.back-link svg { width: 14px; height: 14px; }
+
+.profile {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 48px 32px; border-radius: 24px;
+  background: linear-gradient(135deg, rgba(232,103,42,.06), rgba(155,127,232,.04));
+  border: 1px solid rgba(232,103,42,.18);
+  margin-bottom: 56px; position: relative; overflow: hidden;
+}
+.profile::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(232,103,42,.12), transparent 70%); }
+.profile::after { content: ''; position: absolute; bottom: -50px; left: -50px; width: 180px; height: 180px; background: radial-gradient(circle, rgba(155,127,232,.08), transparent 70%); }
+.profile > * { position: relative; z-index: 1; }
+
+.avatar {
+  width: 140px; height: 140px; border-radius: 50%;
+  border: 3px solid var(--accent); padding: 4px; background: var(--bg2);
+  margin-bottom: 18px;
+  box-shadow: 0 12px 40px rgba(232,103,42,.25);
+}
+.avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+
+.profile h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.1; margin-bottom: 6px; }
+.profile h1 .hi { color: var(--accent); }
+.profile .handle { font-size: 13px; color: var(--text3); margin-bottom: 18px; letter-spacing: .5px; }
+.profile-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 14px; }
+.profile-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 24px;
+  background: var(--bg2); border: 1px solid var(--border);
+  font-size: 12.5px; font-weight: 600; color: var(--text2);
+  transition: all .2s;
+}
+.profile-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.profile-link svg { width: 14px; height: 14px; }
+.profile .role { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; background: rgba(232,103,42,.1); border: 1px solid rgba(232,103,42,.2); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent2); margin-top: 8px; }
+
+.section { margin-bottom: 44px; }
+.section h2 { font-family: 'DM Serif Display', serif; font-size: 24px; line-height: 1.2; margin-bottom: 16px; color: var(--text); display: flex; align-items: center; gap: 12px; }
+.section h2::before { content: ''; width: 6px; height: 24px; background: var(--accent); border-radius: 3px; }
+.section p { font-size: 13.5px; line-height: 1.85; color: var(--text2); margin-bottom: 14px; }
+.section p:last-child { margin-bottom: 0; }
+.section strong { color: var(--text); font-weight: 600; }
+.section a { color: var(--accent); }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+.tag { font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 20px; background: var(--bg3); border: 1px solid var(--border); color: var(--text2); }
+
+.divider { height: 1px; background: var(--border); margin: 38px 0; position: relative; }
+.divider::after { content: ''; position: absolute; left: 0; top: 0; width: 40px; height: 1px; background: var(--accent); }
+
+.contact-card {
+  background: linear-gradient(135deg, rgba(232,103,42,.06), rgba(155,127,232,.04));
+  border: 1px solid rgba(232,103,42,.2);
+  border-radius: var(--r);
+  padding: 22px 24px; margin-top: 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.contact-card .label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.contact-card a { color: var(--text); font-weight: 600; font-size: 14px; word-break: break-all; }
+.contact-card a:hover { color: var(--accent); }
+
+.footer { text-align: center; padding: 40px 0 60px; border-top: 1px solid var(--border); margin-top: 32px; }
+.footer .logo { display: block; font-size: 22px; margin-bottom: 10px; }
+.footer p { font-size: 12px; color: var(--text3); line-height: 1.7; }
+.footer a { color: var(--accent); }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 520px) {
+  .shell { padding: 0 18px; }
+  .profile { padding: 36px 22px; }
+  .avatar { width: 120px; height: 120px; }
+  .profile h1 { font-size: 30px; }
+  .section h2 { font-size: 20px; }
+  .top-bar { padding: 20px 0 16px; margin-bottom: 28px; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.animate { opacity: 0; animation: fadeUp .5s ease forwards; }
+.animate-d1 { animation-delay: .05s; }
+.animate-d2 { animation-delay: .1s; }
+.animate-d3 { animation-delay: .15s; }
+.animate-d4 { animation-delay: .2s; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-glow-2"></div>
+
+<div class="shell">
+
+  <div class="top-bar">
+    <a class="logo" href="index.html">Arc<span class="hi">log</span></a>
+    <a class="back-link" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </a>
+  </div>
+
+  <div class="profile animate">
+    <div class="avatar">
+      <img src="https://cdn.myanimelist.net/s/common/userimages/aef9b896-55f2-437c-99a1-7d9df27b1a05_225w?s=6834a4c3087849f684933858b90356b1" alt="SirZexx avatar" referrerpolicy="no-referrer">
+    </div>
+    <h1>Hey, I'm <span class="hi">HOLYPUSH</span></h1>
+    <div class="handle">also known as SirZexx</div>
+    <div class="profile-links">
+      <a class="profile-link" href="https://myanimelist.net/profile/SirZexxxx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 16V8l3 4 3-4v8"/><path d="M17 16V8"/></svg>
+        MyAnimeList
+      </a>
+      <a class="profile-link" href="https://www.anime-planet.com/users/SirZexx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="3.5"/><path d="M12 3v18"/></svg>
+        Anime-Planet
+      </a>
+    </div>
+    <div class="role">Solo Developer of Arclog</div>
+  </div>
+
+  <div class="section animate animate-d1">
+    <h2>Why I built Arclog</h2>
+    <p>I was already keeping track of my anime, manga, novels and shows across <strong>four separate accounts</strong>: MAL, AniList, NovelUpdates and Anime-Planet. Switching between them every time I finished an episode or a chapter got tiring fast, and discussion was always scattered across forums and YouTube comments rather than tied to the actual thing I had just consumed.</p>
+    <p>The moment that pushed me to start building was reading <strong>Reverend Insanity</strong> from an EPUB. I wanted to talk about a specific chapter with someone who had just read the same chapter, with the right context, without spoilers leaking from later parts of the story. There was nowhere good to do that.</p>
+    <p>So Arclog became the home I wished existed. Every title gets <strong>structured per episode and per chapter threads</strong>, ratings and reviews live next to the discussion, and one account covers anime, manga, manhwa, manhua, web novels, light novels, movies, TV shows and books. I built it as my own daily driver first; everything else is a bonus.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section animate animate-d2">
+    <h2>How it was built</h2>
+    <p>I'm a <strong>CSE graduate</strong> and Arclog is my first published app. Yes, it is my first, and yes, large parts of the application were written with <strong>Claude as a coding assistant</strong>. I am not going to pretend otherwise.</p>
+    <p>What I will say is this: the security primitives are not improvised. Authentication is handled by Supabase Auth, passwords are hashed with bcrypt, and all traffic uses TLS. Data lives in encrypted PostgreSQL with row level security. No admin or moderator can read your password, and that includes me. Catalog data is sourced from <strong>Jikan</strong>, <strong>AniList</strong> and <strong>TMDB</strong>, all open and credited inside the app.</p>
+    <div class="tag-row">
+      <span class="tag">Android</span>
+      <span class="tag">Supabase</span>
+      <span class="tag">Jikan</span>
+      <span class="tag">AniList</span>
+      <span class="tag">TMDB</span>
+      <span class="tag">Resend</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section animate animate-d3">
+    <h2>Where this is going</h2>
+    <p>Arclog is a <strong>long term commitment</strong> for me. I built it for myself before anyone else used it, so I plan to keep maintaining it whether the user base is ten people or ten thousand. There is no fixed roadmap, but any feature with strong user demand gets prioritised, no matter how complex.</p>
+    <p>The web app is already built and waiting in the wings. I am holding it back until the Android version has been battle tested in production and the user base is large enough to justify the wider attack surface. iOS will follow after that.</p>
+    <p>If something is missing or broken, tell me. If a feature would change how you use the app, tell me that too. This is a one person project today, but it is meant to be shaped by the people actually using it.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section animate animate-d4">
+    <h2>Get in touch</h2>
+    <p>For bug reports, feature ideas, takedown notices, account recovery or anything else, the fastest way to reach me is by email.</p>
+    <div class="contact-card">
+      <div class="label">Email</div>
+      <a href="mailto:contact.arclog@gmail.com">contact.arclog@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a class="logo" href="index.html">Arc<span class="hi">log</span></a>
+    <p>Track. Discuss. Share.</p>
+    <p style="margin-top: 8px;"><a href="privacy-policy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms-and-conditions.html">Terms &amp; Conditions</a></p>
+    <p style="margin-top: 12px; font-size: 11px;">&copy; 2026 Arclog. All rights reserved.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -109,7 +109,8 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:860px){.features-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:46px}.phone-frame:nth-child(1),.phone-frame:nth-child(3){display:none}.phone-frame:nth-child(2){transform:none}.phone-frame:nth-child(2):hover{transform:scale(1.02)}.gallery-item{width:180px}.gallery-item img{height:360px}}
-@media(max-width:640px){.nav-links{display:none}.mobile-toggle{display:flex}.hero{padding:130px 20px 60px}.hero h1{font-size:36px}.hero .tagline{font-size:15px}.features-grid{grid-template-columns:1fr}.features{padding:60px 20px}.cta-section{padding:60px 20px}.cta-box{padding:40px 24px}.cta-box h2{font-size:28px}.media-strip-inner{gap:24px}.footer-inner{flex-direction:column;gap:28px}.footer-bottom{flex-direction:column;align-items:flex-start}.mockup-section{padding:0 20px 60px}.phone-frame{width:240px;height:500px}.gallery{padding:40px 20px 60px}.gallery-item{width:170px}.gallery-item img{height:340px}.store-btn{padding:12px 20px;font-size:13px}.store-btn svg{width:20px;height:20px}}
+@media(max-width:880px){.nav-inner{position:relative}.nav-links{display:none;position:absolute;top:calc(100% + 14px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:4px;padding:14px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 18px 50px rgba(0,0,0,.55)}.nav-links.open{display:flex}.nav-link{padding:11px 14px;border-radius:var(--rs);font-size:14px;width:100%}.nav-link:hover{background:var(--bg3)}.nav-cta{justify-content:center;margin-top:8px;width:100%;padding:12px 18px}.nav-dropdown{width:100%}.nav-drop-trigger{padding:11px 14px;border-radius:var(--rs);width:100%;justify-content:space-between}.nav-drop-menu{position:static;transform:none;background:var(--bg3);margin-top:6px;width:100%;box-shadow:none;left:auto;right:auto;min-width:0;padding:4px}.mobile-toggle{display:flex}.mobile-toggle.active{background:var(--accent);border-color:var(--accent);color:#fff}}
+@media(max-width:640px){.nav-inner{padding:0 20px}.hero{padding:130px 20px 60px}.hero h1{font-size:36px}.hero .tagline{font-size:15px}.features-grid{grid-template-columns:1fr}.features{padding:60px 20px}.cta-section{padding:60px 20px}.cta-box{padding:40px 24px}.cta-box h2{font-size:28px}.media-strip-inner{gap:24px}.footer-inner{flex-direction:column;gap:28px}.footer-bottom{flex-direction:column;align-items:flex-start}.mockup-section{padding:0 20px 60px}.phone-frame{width:240px;height:500px}.gallery{padding:40px 20px 60px}.gallery-item{width:170px}.gallery-item img{height:340px}.store-btn{padding:12px 20px;font-size:13px}.store-btn svg{width:20px;height:20px}.nav-links{left:12px;right:12px}}
 .gallery-wrap{position:relative}
 .gallery-arr{position:absolute;top:50%;transform:translateY(-60%);width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .gallery-arr:hover{background:var(--bg3);border-color:var(--accent);box-shadow:0 6px 24px rgba(0,0,0,.5)}
@@ -118,6 +119,28 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
 .gallery-arr.left{left:-8px}.gallery-arr.right{right:-8px}
 .gallery-arr.hidden{opacity:0;pointer-events:none}
 @media(max-width:640px){.gallery-arr{width:36px;height:36px}.gallery-arr svg{width:14px;height:14px}.gallery-arr.left{left:-4px}.gallery-arr.right{right:-4px}}
+.faq{max-width:1080px;margin:0 auto;padding:80px 32px;position:relative;z-index:1}
+.faq-header{text-align:center;margin-bottom:48px}
+.faq-header .sec-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.faq-header h2{font-family:'DM Serif Display',serif;font-size:36px;line-height:1.2}
+.faq-header p{font-size:14px;color:var(--text3);margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.faq-categories{display:flex;flex-direction:column;gap:36px}
+.faq-cat h3{font-family:'DM Serif Display',serif;font-size:22px;margin-bottom:16px;color:var(--text);display:flex;align-items:center;gap:12px}
+.faq-cat h3::before{content:'';width:6px;height:24px;background:var(--accent);border-radius:3px}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(232,103,42,.3)}
+.faq-item[open]{border-color:rgba(232,103,42,.4)}
+.faq-item summary{padding:18px 22px;font-size:14px;font-weight:600;color:var(--text);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;user-select:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:24px;font-weight:300;color:var(--accent);transition:transform .25s;flex-shrink:0;line-height:1}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-body{padding:0 22px 18px;font-size:13px;line-height:1.75;color:var(--text2)}
+.faq-item .faq-body p{margin-bottom:10px}
+.faq-item .faq-body p:last-child{margin-bottom:0}
+.faq-item .faq-body a{color:var(--accent)}
+.faq-item .faq-body strong{color:var(--text);font-weight:600}
+@media(max-width:640px){.faq{padding:60px 20px}.faq-item summary{padding:16px 18px;font-size:13px;gap:10px}.faq-item .faq-body{padding:0 18px 16px}.faq-cat h3{font-size:20px}}
 </style>
 </head>
 <body>
@@ -130,6 +153,8 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
     <a class="nav-logo" href="#">Arc<span class="hi">log</span></a>
     <div class="nav-links">
       <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-link" href="about.html">About</a>
       <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
       <a class="nav-link" href="terms-and-conditions.html">Terms &amp; Conditions</a>
       <div class="nav-dropdown">
@@ -144,7 +169,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
         Download
       </a>
     </div>
-    <div class="mobile-toggle" onclick="document.querySelector('.nav-links').style.display=this.dataset.open?'none':'flex';this.dataset.open=this.dataset.open?'':'1'">
+    <div class="mobile-toggle" id="mobileToggle" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </div>
   </div>
@@ -228,6 +253,119 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
   </div>
 </section>
 
+<section class="faq" id="faq">
+  <div class="faq-header reveal">
+    <div class="sec-label">FAQ</div>
+    <h2>Frequently Asked <span style="color:var(--accent)">Questions</span></h2>
+    <p>Common questions about Arclog. If something is missing, reach out by email.</p>
+  </div>
+  <div class="faq-categories reveal">
+
+    <div class="faq-cat">
+      <h3>General</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is Arclog?</summary>
+          <div class="faq-body"><p>Arclog is a unified tracker for anime, manga, manhwa, manhua, web novels, light novels, movies, TV shows and books. It is built around per episode and per chapter discussion, ratings and reviews, so every conversation stays anchored to the exact thing you just watched or read.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Why was Arclog created?</summary>
+          <div class="faq-body"><p>I was juggling four separate accounts (MAL, AniList, NovelUpdates and Anime-Planet) just to keep track of what I was watching and reading. None of them had the per chapter discussion experience I wanted while reading something like Reverend Insanity. Arclog is the single home I wished existed, with structured threads for episodes, chapters and titles instead of scattered forum posts.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Who is behind Arclog?</summary>
+          <div class="faq-body"><p>I'm HOLYPUSH (also known as SirZexx), a solo developer and CSE graduate. Arclog is my first published app. You can read more on the <a href="about.html">About page</a>.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="faq-cat">
+      <h3>Database and Content</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Where does the catalog data come from?</summary>
+          <div class="faq-body"><p>Anime, manga, manhwa, manhua and web novels are sourced from the <strong>Jikan</strong> and <strong>AniList</strong> APIs. Movies, TV shows and web series come from <strong>TMDB</strong>. All three are open and free to use, and full credits are listed in the app's About section.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How often is the database updated?</summary>
+          <div class="faq-body"><p>The catalog refreshes daily and stays as current as the upstream databases it pulls from.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I add a title that isn't in the database?</summary>
+          <div class="faq-body"><p>Yes. If something niche or obscure is missing, you can submit it from inside the app. It goes through moderator review first; once approved it is added to the shared catalog for every user.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Does Arclog support books?</summary>
+          <div class="faq-body"><p>The books category exists but the catalog is intentionally light right now. You can add titles yourself. A larger book database is on the table for future updates if there is meaningful user demand for it.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="faq-cat">
+      <h3>Privacy and Security</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How is my data stored?</summary>
+          <div class="faq-body"><p>All data lives on <strong>Supabase</strong>, which runs encrypted PostgreSQL with TLS in transit and encryption at rest. Row level security policies are applied on database tables.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Can the developer or moderators see my password?</summary>
+          <div class="faq-body"><p>No. Passwords are hashed with bcrypt and managed by Supabase Auth, so they are never readable as plain text by anyone, including me. No admin or moderator at Arclog or Supabase can access your password or your encrypted credentials.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What does "Sign in with Google" share?</summary>
+          <div class="faq-body"><p>Only your name and email. Arclog never accesses your Google contacts, files or any other Google data. The exact permissions are shown in the Google consent screen when you sign in.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens when I delete my account?</summary>
+          <div class="faq-body"><p>Everything tied to your account is removed instantly. There is no waiting period and no copy retained. See the <a href="delete-account.html">Delete Account page</a> for the exact steps.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="faq-cat">
+      <h3>Features and Platforms</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is there a web or PC version?</summary>
+          <div class="faq-body"><p>A web app is already built and ready. I am holding it back until the Android user base is larger and the security posture has been battle tested in production. The web version rolls out after that.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is iOS supported?</summary>
+          <div class="faq-body"><p>Not yet. iOS is planned as a follow up release after the Android app stabilises.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>What makes the discussion feature different?</summary>
+          <div class="faq-body"><p>Every title has structured per episode and per chapter threads instead of one large forum. You can keep things casual or serious in either, but the conversation always stays anchored to the exact episode or chapter you just finished.</p></div>
+        </details>
+      </div>
+    </div>
+
+    <div class="faq-cat">
+      <h3>Community and Future</h3>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How is moderation handled?</summary>
+          <div class="faq-body"><p>Moderation is mostly automated, paired with a robust reporting system. New title submissions require moderator approval, which is handled by me at the moment. Community moderators will be appointed as the user base grows.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Arclog open source?</summary>
+          <div class="faq-body"><p>Not at the moment. There is no public repository today. That may change in the future, but there is no firm plan for it yet.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>How is Arclog monetised?</summary>
+          <div class="faq-body"><p>I cover the server cost personally and the current setup can support roughly <strong>10,000 monthly active users</strong> comfortably. If usage grows past that, I will consider minimal, non intrusive ads or optional donations. Banner ads and aggressive monetisation are off the table.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Arclog a long term project?</summary>
+          <div class="faq-body"><p>Yes. I built Arclog for myself first, so I plan to keep maintaining it regardless of how large it gets. There is no fixed roadmap, but any feature with strong user demand will be prioritised, no matter how complex.</p></div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="cta-section">
   <div class="cta-box reveal">
     <h2>Start tracking <span class="hi">today</span></h2>
@@ -256,6 +394,8 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
       <h4>App</h4>
       <a href="https://play.google.com/store/apps/details?id=com.arclog.app" target="_blank" rel="noopener">Google Play</a>
       <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="about.html">About</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -269,7 +409,7 @@ footer{border-top:1px solid var(--border);padding:48px 32px 40px;position:relati
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="mailto:contact.avanishramana@gmail.com">contact.avanishramana@gmail.com</a>
+      <a href="mailto:contact.arclog@gmail.com">contact.arclog@gmail.com</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -283,7 +423,8 @@ window.addEventListener('scroll',()=>{document.getElementById('navbar').classLis
 const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',(e)=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
-document.addEventListener('click',e=>{if(!e.target.closest('.nav-dropdown'))document.querySelectorAll('.nav-dropdown.open').forEach(d=>d.classList.remove('open'))});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-dropdown'))document.querySelectorAll('.nav-dropdown.open').forEach(d=>d.classList.remove('open'));if(!e.target.closest('nav')){document.querySelector('.nav-links')?.classList.remove('open');document.getElementById('mobileToggle')?.classList.remove('active')}});
+document.querySelectorAll('.nav-links a:not(.nav-drop-trigger)').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.nav-links')?.classList.remove('open');document.getElementById('mobileToggle')?.classList.remove('active')}));
 function scrollGallery(dir){const g=document.getElementById('galScroll');g.scrollBy({left:dir*260,behavior:'smooth'})}
 const galScroll=document.getElementById('galScroll');
 if(galScroll){galScroll.addEventListener('scroll',()=>{const l=document.getElementById('galLeft'),r=document.getElementById('galRight');if(l)l.classList.toggle('hidden',galScroll.scrollLeft<10);if(r)r.classList.toggle('hidden',galScroll.scrollLeft+galScroll.clientWidth>=galScroll.scrollWidth-10)})}
